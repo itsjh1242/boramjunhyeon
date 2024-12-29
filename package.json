@@ -2,7 +2,7 @@
   "homepage": "https://itsjh1242.github.io/boramjunhyeon_map",
   "name": "boramjunhyeon_map",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
