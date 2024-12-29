@@ -15,7 +15,7 @@ import { MapPinIcon, PackageOpenIcon } from "lucide-react";
 // components
 import { HomeMain } from "@/views/home/main";
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   const { next, nextMonth, history, totalDocs, fetchNextHistory } =
     useHistory();
 
@@ -254,3 +254,5 @@ const DrawerItem: React.FC<DrawerItemProps> = ({
     </div>
   );
 };
+
+export default HomePage;

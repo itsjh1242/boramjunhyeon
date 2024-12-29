@@ -8,9 +8,9 @@ import {
 import { useDeviceType } from "@/lib/useMediaQuery";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
-import { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
-import { HomePage } from "@/views/index";
+const HomePage = React.lazy(() => import("@/views/home/page"));
 
 export const LoginPage: React.FC = () => {
   const isMobile = useDeviceType();
@@ -77,5 +77,11 @@ export const LoginPage: React.FC = () => {
       </>
     );
 
-  return <HomePage />;
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HomePage />
+      </Suspense>
+    </div>
+  );
 };
