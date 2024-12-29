@@ -7,7 +7,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={`https://itsjh1242.github.io/boramjunhyeon_map/`}>
       <AppRoutes />
     </BrowserRouter>
   </StrictMode>,
