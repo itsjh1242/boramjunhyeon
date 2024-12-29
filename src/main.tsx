@@ -1,14 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./Routes";
 import "./font.css";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter basename={`https://itsjh1242.github.io/boramjunhyeon_map/`}>
       <AppRoutes />
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>,
 );
