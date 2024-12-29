@@ -52,7 +52,7 @@ export const AlertBanner: React.FC<AlertBannerProps> = ({
           {/* 배너 이미지 */}
           <div className="w-10 h-10 flex-shrink-0">
             <img
-              src={`image/banner/${img_src}`}
+              src={img_src}
               alt="banner"
               className="w-full h-full object-cover rounded-lg"
             />
