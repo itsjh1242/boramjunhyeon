@@ -10,4 +10,3 @@ export const snap_secure_default = async () => {
     throw error;
   }
 };
-

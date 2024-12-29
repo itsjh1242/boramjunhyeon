@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 const MOBILE_BREAKPOINT = 768;
 
 export const useDeviceType = () => {
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= MOBILE_BREAKPOINT);
+  const [isMobile, setIsMobile] = useState(
+    () => window.innerWidth <= MOBILE_BREAKPOINT,
+  );
 
   useEffect(() => {
     const onResize = () => {

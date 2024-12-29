@@ -1,2 +1,3 @@
-export { Landing } from "./Landing";
-export { MainPage } from "./Main";
+// home
+export { HomePage } from "@/views/home/page";
+export { LoginPage } from "@/views/login/page";

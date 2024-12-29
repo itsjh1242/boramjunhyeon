@@ -1,5 +1,14 @@
 import { db } from "@/lib/db";
-import { collection, doc, documentId, getDoc, getDocs, limit, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  documentId,
+  getDoc,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
 export const snap_history = async (docId: string) => {
   try {

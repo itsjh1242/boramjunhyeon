@@ -48,16 +48,19 @@ const useHistory = () => {
 
       if (fetchedHistory && Object.keys(fetchedHistory).length > 0) {
         // 월별 데이터로 변환
-        const updatedHistory = Object.entries(fetchedHistory).reduce((acc, [dateKey, item]) => {
-          // 월 키가 없으면 초기화
-          if (!acc[documentId!]) {
-            acc[documentId!] = [];
-          }
+        const updatedHistory = Object.entries(fetchedHistory).reduce(
+          (acc, [dateKey, item]) => {
+            // 월 키가 없으면 초기화
+            if (!acc[documentId!]) {
+              acc[documentId!] = [];
+            }
 
-          // 월 키에 날짜 데이터를 추가
-          acc[documentId!].push({ [dateKey]: item });
-          return acc;
-        }, {} as { [month: string]: { [date: string]: HistoryItemModel }[] });
+            // 월 키에 날짜 데이터를 추가
+            acc[documentId!].push({ [dateKey]: item });
+            return acc;
+          },
+          {} as { [month: string]: { [date: string]: HistoryItemModel }[] },
+        );
 
         // 상태 업데이트
         setHistory((prev) => ({
@@ -92,14 +95,17 @@ const useHistory = () => {
 
       // fetchedHistory를 기존 history에 병합
       if (fetchedHistory && Object.keys(fetchedHistory).length > 0) {
-        const updatedHistory = Object.entries(fetchedHistory).reduce((acc, [dateKey, item]) => {
-          if (!acc[next]) {
-            acc[next] = [];
-          }
+        const updatedHistory = Object.entries(fetchedHistory).reduce(
+          (acc, [dateKey, item]) => {
+            if (!acc[next]) {
+              acc[next] = [];
+            }
 
-          acc[next].push({ [dateKey]: item });
-          return acc;
-        }, {} as { [month: string]: { [date: string]: HistoryItemModel }[] });
+            acc[next].push({ [dateKey]: item });
+            return acc;
+          },
+          {} as { [month: string]: { [date: string]: HistoryItemModel }[] },
+        );
 
         setHistory((prev) => ({
           ...prev,

@@ -1,13 +1,18 @@
 import { isAuthorized } from "@/api/hook/secure-hook";
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { useDeviceType } from "@/lib/useMediaQuery";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 import { useEffect, useState } from "react";
 
-import { MainPage } from "@/views/index";
+import { HomePage } from "@/views/index";
 
-export const Landing: React.FC = () => {
+export const LoginPage: React.FC = () => {
   const isMobile = useDeviceType();
   const login = useAuthStore((state) => state.login);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -33,13 +38,20 @@ export const Landing: React.FC = () => {
     return (
       <>
         <section className="w-full max-w-[500px] min-h-screen flex flex-col justify-center items-center m-auto ">
-          <InputOTP maxLength={8} pattern={REGEXP_ONLY_DIGITS_AND_CHARS} onChange={(value) => setPassword(value)} value={password}>
+          <InputOTP
+            maxLength={8}
+            pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
+            onChange={(value) => setPassword(value)}
+            value={password}
+          >
             <InputOTPGroup>
               {[0, 1, 2, 3].map((index) => (
                 <InputOTPSlot
                   key={index}
                   index={index}
-                  className={`w-[40px] h-[40px] transition duration-300 ${isMobile && "w-10 h-10"} ${hasLogined && "text-green-400"}`}
+                  className={`w-[40px] h-[40px] transition duration-300 ${
+                    isMobile && "w-10 h-10"
+                  } ${hasLogined && "text-green-400"}`}
                 />
               ))}
             </InputOTPGroup>
@@ -49,17 +61,21 @@ export const Landing: React.FC = () => {
                 <InputOTPSlot
                   key={index}
                   index={index}
-                  className={`w-[40px] h-[40px] transition duration-300 ${isMobile && "w-10 h-10"} ${hasLogined && "text-green-400"}`}
+                  className={`w-[40px] h-[40px] transition duration-300 ${
+                    isMobile && "w-10 h-10"
+                  } ${hasLogined && "text-green-400"}`}
                 />
               ))}
             </InputOTPGroup>
           </InputOTP>
           <div className="mt-4">
-            <p className="text-gray-400">Enter your private password to unlock this page</p>
+            <p className="text-gray-400">
+              Enter your private password to unlock this page
+            </p>
           </div>
         </section>
       </>
     );
 
-  return <MainPage />;
+  return <HomePage />;
 };
